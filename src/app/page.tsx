@@ -1,7 +1,9 @@
 "use client"
 
 import axios from "axios";
+
 import { useEffect } from "react";
+import { Navigation } from "./(food-menu)/_components/navigation";
 
 export default function Home() {
   const getData = async () => {
@@ -12,7 +14,8 @@ export default function Home() {
     getData();
   }, [])
   return (
-    <div className="flex justify-center items-center">hello form admin
+    <div className="w-full h-[1200px] top-[300px] bg-[#F4F4F5]">
+      <Navigation/>
     </div>
   );
 }
