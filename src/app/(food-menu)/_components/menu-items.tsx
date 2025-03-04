@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button"
+import { Plus } from "lucide-react"
 
 export const MenuItems = () => {
     return(
@@ -8,6 +9,9 @@ export const MenuItems = () => {
                 <Button className="w-[39px] h-[20px] rounded-full gap-[10px]">
                     <p className="font-semibold text-xs">112</p>
                 </Button>
+            </Button>
+            <Button className="w-[36px] h-[36px] rounded-full gap-[8px] bg-[#EF4444]">
+               <Plus />
             </Button>
         </div>
     ) 
