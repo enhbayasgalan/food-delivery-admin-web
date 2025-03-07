@@ -15,6 +15,7 @@ export const Header = () => {
             <div className="w-full h-fit gap-4">
                 <div className="w-[270.75px] h-[241px] gap-6 border-[1px] bg-[#EF4444]">
                     <Button className="w-[40px] h-[40px] rounded-full gap-[8px] bg-sky-400 top-[80px] right-[16px] left-[16px] bottom-[8px]"></Button>
+                    <p className="font-medium text-sm">Add new Dish to Appetizers </p>
                 </div>
             </div>
         </div>
