@@ -15,6 +15,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import  {AddFoods}  from "./AddFood";
+import { Divide } from "lucide";
+import { AddCards } from "./AddCard";
 
 type Category = {
   categoryName: string;
@@ -46,25 +48,26 @@ export const Header = () => {
 
   
   return (
-    <div className="w-full h-fit ">
-      <div className="w-[1171px] h-fit bg-[#FFFF] rounded-xl mt-[10px]">
+    <div className="w-full h-fit ml-[230px] px-8 py-4">
+      <div className="w-full h-fit bg-[#FFFF] rounded-xl mt-[10px] px-5 py-2">
         <p className="w-full h-fit  font-semibold text-xl ">Dishes category</p>
         <MenuItems />
       </div>
       {categories?.map((category: Category, index) => (
         <div
           key={index}
-          className="bg-[#FFFF] w-[1171px] h-[300px] mt-[15px] rounded-xl px-4 py-5"
+          className="bg-[#FFFF] w-full h-fit mt-[15px] rounded-xl px-4 py-5"
         >
           <div className="w-full h-fit gap-[8px]">
             <p className="font-medium text-xl">{category.categoryName}</p>
-            <div className="flex gap-8">
-            <div className="w-[270px] border border-red-500 border-dashed items-center rounded-[12px] flex flex-col px-2 py-[80px]">
+            <div className="flex gap-8 flex-wrap">
+            <div className="w-[270px]  border border-red-500 border-dashed items-center rounded-[12px] flex flex-col px-2 py-[80px]">
               <AddFoods category={category}/>
               <p className="font-medium text-sm ">
                 Add new Dish to {category.categoryName}
               </p>
             </div>
+            <AddCards category={category}/>
             </div>
           </div>
         </div>

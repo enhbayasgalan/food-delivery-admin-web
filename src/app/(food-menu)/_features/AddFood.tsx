@@ -11,7 +11,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 type Props ={
     category : Category
@@ -74,8 +74,9 @@ export const AddFoods = ({category}:Props) => {
                 
             }
           }
-    return(
-   
+         
+     return(
+        
                       <Dialog>
                         <DialogTrigger asChild>
                           <Button
@@ -143,7 +144,7 @@ export const AddFoods = ({category}:Props) => {
                             </div>
                           </div>
                           <DialogFooter>
-                            <Button onClick={postFood} type="submit">Save changes</Button>
+                            <Button onClick={postFood} type="submit">Add dish</Button>
                           </DialogFooter>
                         </DialogContent>
                       </Dialog>

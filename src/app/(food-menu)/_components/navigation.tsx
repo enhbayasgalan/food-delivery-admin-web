@@ -5,7 +5,7 @@ import { LayoutDashboardIcon, SettingsIcon, TruckIcon } from "lucide-react";
 
 export const Navigation = () => {
   return (
-    <div className="w-[205px] h-full sticky flex items-center gap-10 flex-col py-9 px-5 bg-[#FFFF]">
+    <div className="w-[205px] h-screen fixed flex items-center gap-10 flex-col py-9 px-5 bg-[#FFFF]">
       <div className="w-full flex gap-[10]">
         <LogoNomNom />
         <div className="flex flex-col">
