@@ -67,7 +67,7 @@ export const Header = () => {
                 Add new Dish to {category.categoryName}
               </p>
             </div>
-            <AddCards category={category}/>
+            <AddCards category={category} categories={categories}/>
             </div>
           </div>
         </div>
