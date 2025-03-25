@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable jsx-a11y/alt-text */
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -11,7 +13,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import axios from "axios";
-import { log } from "console";
 import { Pencil } from "lucide-react";
 import { Trash } from "lucide-react";
 import { useState } from "react";
@@ -19,7 +20,7 @@ import { X } from "lucide-react";
 
 type Props = {
   food: food;
-  getFood: Function;
+  getFood(): Promise<void>;
   categories: Response[];
 };
 

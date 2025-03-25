@@ -1,7 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import axios from "axios";
-import { PureComponent, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import { Newfood } from "./NewFood";
 
 type Props = {

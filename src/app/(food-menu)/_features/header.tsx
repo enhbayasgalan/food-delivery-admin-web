@@ -1,26 +1,13 @@
 import { MenuItems } from "../_components/menu-items";
-import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Plus } from "lucide-react";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import  {AddFoods}  from "./AddFood";
-import { Divide } from "lucide";
 import { AddCards } from "./AddCard";
 
 type Category = {
   categoryName: string;
   _id : string
+  food : food
 };
 type food ={
     foodName: string
