@@ -52,7 +52,7 @@ export const MenuItems = () => {
     <div className="w-full h-fit gap-3 flex flex-wrap">
       <Button className="w-[143px] h-fit rounded-full gap-[8px] text-black bg-[none]">
         <p className=" font-medium text-sm">All Dishes</p>
-        <div className="w-[39px] h-[20px] rounded-full gap-[10px]">
+        <div className="py-[2px] text-white text-sm px-[10px] rounded-full bg-black">
           <p className="font-semibold text-xs">112</p>
         </div>
       </Button>

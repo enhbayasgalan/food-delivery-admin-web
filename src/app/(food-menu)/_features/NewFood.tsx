@@ -57,8 +57,6 @@ export const Newfood = ({ food, getFood, categories }: Props) => {
   const PutImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.type == "file" && e.target.files) {
       const file = e.target.files[0];
-      const formData = new FormData();
-
       try {
         if (file) {
           const formData = new FormData();
@@ -90,7 +88,7 @@ export const Newfood = ({ food, getFood, categories }: Props) => {
       console.log(error);
     } finally {
       getFood();
-    }
+    } 
   };
   return (
     <Dialog>

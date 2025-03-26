@@ -35,7 +35,7 @@ export const Header = () => {
 
   
   return (
-    <div className="w-full h-fit ml-[230px] px-8 py-4">
+    <div className="w-full h-fit  px-8 py-4">
       <div className="w-full h-fit bg-[#FFFF] rounded-xl mt-[10px] px-5 py-2">
         <p className="w-full h-fit  font-semibold text-xl ">Dishes category</p>
         <MenuItems />

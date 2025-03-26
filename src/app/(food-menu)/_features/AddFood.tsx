@@ -42,7 +42,6 @@ export const AddFoods = ({category}:Props) => {
         const imageOnChange = async (e:React.ChangeEvent<HTMLInputElement>) => {
             if (e.target.type == "file" && e.target.files) {
                 const file = e.target.files[0];
-                const formData = new FormData();
             
                 try {
                   if (file) {
