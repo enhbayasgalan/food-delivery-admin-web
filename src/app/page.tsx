@@ -10,7 +10,7 @@ import { Header } from "./(food-menu)/_features/header";
 
 export default function Home() {
   return (
-    <div className="w-screen flex gap-6 bg-[#F4F4F5]">
+    <div className="w-screen flex gap-6 bg-[#F4F4F5] ">
       <Navigation/>
       <Header/>
     </div>

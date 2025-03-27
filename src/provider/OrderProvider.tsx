@@ -14,6 +14,7 @@ type Order = {
     createdAt: Date,
     user : User,
     totalPrice: number
+    _id : string
   }
   
   type item = {

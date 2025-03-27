@@ -6,6 +6,7 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query'
 import { OrderProvider } from "@/provider/OrderProvider";
+import { ToastContainer } from "react-toastify";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -31,6 +32,7 @@ export default function RootLayout({
         <QueryClientProvider client={queryClient}>
           <OrderProvider>
         {children}
+        <ToastContainer />
         </OrderProvider>
         </QueryClientProvider>
       </body>
