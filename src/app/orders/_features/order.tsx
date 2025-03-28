@@ -18,9 +18,13 @@ import { ChevronLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import axios from "axios";
 import { OrderfoodImage } from "./OrderfoodimagesDetail";
+import { DatePickerDemo } from "./Date";
+import { DeliverStatus } from "./DeliveryState";
+import { useState } from "react";
 
 export const OrderHeader = () => {
   const { orders, refetchOrder } = useOrder();
+  const [checkedOrders, setCheckedOrders] = useState<string[]>([]);
   const hadnleOrderStatus = async (status: string, id: string) => {
     try {
       const res = await axios.put(`http://localhost:5000/order/${id}`, {
@@ -32,10 +36,26 @@ export const OrderHeader = () => {
       console.log(error);
     }
   };
+  const checkOrder = (id:string) => {
+    if (checkedOrders.includes(id)) {
+      const filterorders = checkedOrders.filter((order)=>order !== id)
+      setCheckedOrders(filterorders)
+    }else{
+      setCheckedOrders([...checkedOrders, id])
+    }
+       
+  };
+  console.log(checkedOrders);
   return (
     <>
-      <div className="justify-between items-center bg-[#E4E4E7] w-full">
-        <div className="bg-[#FFFF] rounded-xl w-full mt-[12px]"></div>
+      <div className="justify-between items-center mt-[12px] w-full">
+        <div className="bg-white-700 rounded-xl w-full mt-[35px] h-fit justify-between">
+          <div className="w-[485px] h-[44px] px-4 py-5 flex justify-center justify-between gap-[100px]">
+            <p>Orders</p>
+            <DatePickerDemo />
+            <DeliverStatus checkedOrders={checkedOrders}/>
+          </div>
+        </div>
         <Table>
           <TableHeader>
             <TableRow>
@@ -53,11 +73,16 @@ export const OrderHeader = () => {
             {orders.map((order, index) => (
               <TableRow key={index}>
                 <TableCell>
-                  <input type="checkbox" />
+                  <input
+                    type="checkbox"
+                    checked={checkedOrders.includes(order._id)}
+                    onChange={() => checkOrder(order._id)}
+                  />
                 </TableCell>
                 <TableCell>{index + 1}</TableCell>
                 <TableCell>{order.user.email}</TableCell>
                 <TableCell className="flex">
+                  <div>
                   food
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
@@ -67,12 +92,14 @@ export const OrderHeader = () => {
                       <OrderfoodImage item={order.foodOrderItems} />
                     </DropdownMenuContent>
                   </DropdownMenu>
+                  </div>
                 </TableCell>
                 <TableCell>
                   {order.createdAt.toString().split("T")[0]}
                 </TableCell>
                 <TableCell>{order.totalPrice}$</TableCell>
                 <TableCell>{order.user.address}</TableCell>
+                <TableCell>
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
                     <Button className="mt-[7px] rounded-full border-red-500 px-2 py-[9px] border border-dashed w-[80px] h-[35px] text-white">
@@ -96,7 +123,7 @@ export const OrderHeader = () => {
                         DELIVERED
                       </Button>
                       <Button
-                        className="w-[100px] h-[16px] px-2 py-[10px] gap-[10px] border rounded-full mt-[5px] bg-inherit text-gray-500 border border-gray-300 hover:bg-gray-300/30"
+                        className="w-[100px] h-[16px] px-2 py-[10px] gap-[10px] border rounded-full mt-[5px] bg-inherit text-gray-500 border border-gray-300 hover:bg-gray-300/30 "
                         onClick={() =>
                           hadnleOrderStatus("CANCELLED", order._id)
                         }
@@ -106,6 +133,7 @@ export const OrderHeader = () => {
                     </div>
                   </DropdownMenuContent>
                 </DropdownMenu>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
