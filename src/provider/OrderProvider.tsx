@@ -1,68 +1,71 @@
-'use client'
+"use client";
 
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { createContext, ReactNode, useContext } from "react";
 
-type OrderProviderType ={
-    orders : Order[];
-    refetchOrder :()=> void
-}
+type OrderProviderType = {
+    orders: Order[];
+    refetchOrder: () => void;
+};
+
 type Order = {
-    foodOrderItems : item[],
-    status: string,
-    createdAt: Date,
-    user : User,
-    totalPrice: number
-    _id : string
-  }
-  
-  type item = {
-    food: food
-    quantity: number
-  }
-  
-  type food = {
+    foodOrderItems: Item[];
+    status: string;
+    createdAt: Date;
+    user: User;
+    totalPrice: number;
+    _id: string;
+};
+
+type Item = {
+    food: Food;
+    quantity: number;
+};
+
+type Food = {
     foodName: string;
     price: number;
     image: string;
     ingredients: string;
-    _id : string
-  }
-  type User = {
-    email :string
-    address : string
-  }
-  
+    _id: string;
+};
 
-const getOrder:() =>void = async () => {
+type User = {
+    email: string;
+    address: string;
+};
+
+const getOrder = async (): Promise<Order[]> => {
     try {
-        const response = await axios.get(`http://localhost:5000/order/all`)
-        console.log(response);
-        
-        return response.data
+        const response = await axios.get("https://food-delivery-service-0wy6.onrender.com/order/all");
+        console.log("Orders fetched:", response.data); 
+        return response.data; 
     } catch (error) {
-        console.log(error);
-        
+        console.error("Error fetching orders:", error);
+        throw new Error("Failed to fetch orders"); 
     }
-}
+};
 
 const OrderContext = createContext<OrderProviderType | undefined>(undefined);
-export const OrderProvider = ({children}:{children : ReactNode})=>{
-    const {data : orders=[], refetch : refetchOrder} = useQuery({
+
+export const OrderProvider = ({ children }: { children: ReactNode }) => {
+    const { data: orders = [], refetch: refetchOrder } = useQuery({
         queryKey: ["orders"],
-        queryFn :()=> getOrder()
-    })
-return(
-<OrderContext.Provider value={{orders, refetchOrder}}>
-    {children}
-</OrderContext.Provider>
-)
-}
+        queryFn: getOrder, 
+    });
+
+    return (
+        <OrderContext.Provider value={{ orders, refetchOrder }}>
+            {children}
+        </OrderContext.Provider>
+    );
+};
+
 export const useOrder = () => {
     const context = useContext(OrderContext);
     if (!context) {
-      throw new Error("useCategory must be used within a CategoryProvider");
+        throw new Error("useOrder must be used within an OrderProvider"); 
     }
     return context;
-  };
+};

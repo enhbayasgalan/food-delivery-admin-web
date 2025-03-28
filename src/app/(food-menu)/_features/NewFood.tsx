@@ -47,7 +47,7 @@ export const Newfood = ({ food, getFood, categories }: Props) => {
   });
   const putFood = async () => {
     try {
-      const res = axios.put(`http://localhost:5000/food/${food._id}`, putfood);
+      const res = axios.put(`https://food-delivery-service-0wy6.onrender.com/food/${food._id}`, putfood);
       console.log(res);
       getFood();
     } catch (error) {
@@ -82,7 +82,7 @@ export const Newfood = ({ food, getFood, categories }: Props) => {
   };
   const deleteFood = async () => {
     try {
-      const res = await axios.delete(`http://localhost:5000/food/${food._id}`);
+      const res = await axios.delete(`https://food-delivery-service-0wy6.onrender.com/food/${food._id}`);
       console.log(res);
     } catch (error) {
       console.log(error);

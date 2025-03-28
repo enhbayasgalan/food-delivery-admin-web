@@ -17,7 +17,7 @@ export const DeliverStatus = ({checkedOrders}:{checkedOrders:string[]}) => {
   const { refetchOrder } = useOrder()
   const handleStatus = async () => {
     try {
-        const response = await axios.put(`http://localhost:5000/order`, {status:deliverystatus, id : checkedOrders})
+        const response = await axios.put(`https://food-delivery-service-0wy6.onrender.com/order`, {status:deliverystatus, id : checkedOrders})
         console.log(response);
         await refetchOrder()
     } catch (error) {

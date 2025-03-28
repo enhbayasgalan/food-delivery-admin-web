@@ -23,7 +23,7 @@ export const MenuItems = () => {
 
   const getCategory = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/category");
+      const response = await axios.get("https://food-delivery-service-0wy6.onrender.com/category");
       console.log(response.data);
       setcategory(response.data);
     } catch (error) {
@@ -36,7 +36,7 @@ export const MenuItems = () => {
       return;
     }
     try {
-      const response = await axios.post("http://localhost:5000/category", {categoryName: newCategory});
+      const response = await axios.post("https://food-delivery-service-0wy6.onrender.com/category", {categoryName: newCategory});
       console.log(response.data);
       getCategory()
     } catch (error) {

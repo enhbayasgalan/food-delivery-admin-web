@@ -33,7 +33,7 @@ export const AddCards = ({ category, categories,}: Props) => {
   
   const getFood = async () => {
     try {
-      const repo = await axios.get(`http://localhost:5000/food/${category._id}`);
+      const repo = await axios.get(`https://food-delivery-service-0wy6.onrender.com/food/${category._id}`);
       console.log(repo);
       setFoods(repo.data);
     } catch (error) {

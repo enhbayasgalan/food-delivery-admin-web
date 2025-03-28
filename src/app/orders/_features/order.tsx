@@ -27,8 +27,9 @@ export const OrderHeader = () => {
   const [checkedOrders, setCheckedOrders] = useState<string[]>([]);
   const hadnleOrderStatus = async (status: string, id: string) => {
     try {
-      const res = await axios.put(`http://localhost:5000/order/${id}`, {
+      const res = await axios.put(`https://food-delivery-service-0wy6.onrender.com/order`, {
         status: status,
+        id : [id]
       });
       console.log(res.data);
       await refetchOrder();

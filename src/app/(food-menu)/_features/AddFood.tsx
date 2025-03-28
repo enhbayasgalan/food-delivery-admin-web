@@ -68,7 +68,7 @@ export const AddFoods = ({category}:Props) => {
           }
           const postFood = async () => {
             try {
-                const res = await axios.post(`http://localhost:5000/food`, newFood)
+                const res = await axios.post(`https://food-delivery-service-0wy6.onrender.com/food`, newFood)
                 console.log(res);
             } catch (error) {
                 console.log(error);
