@@ -38,6 +38,7 @@ type Response = {
   _id: string;
 };
 export const Newfood = ({ food, getFood, categories }: Props) => {
+  
   const [putfood, setPutfood] = useState({
     foodName: food.foodName,
     price: food.price,

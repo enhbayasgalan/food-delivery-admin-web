@@ -47,6 +47,7 @@ export const OrderHeader = () => {
        
   };
   console.log(checkedOrders);
+
   return (
     <>
       <div className="justify-between items-center mt-[12px] w-full">
@@ -60,7 +61,9 @@ export const OrderHeader = () => {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className="w-[100px]"></TableHead>
+              <TableHead className="w-[100px]">
+                  <input type="checkbox"/>
+              </TableHead>
               <TableHead>№</TableHead>
               <TableHead>Customer</TableHead>
               <TableHead>Food</TableHead>
@@ -78,6 +81,7 @@ export const OrderHeader = () => {
                     type="checkbox"
                     checked={checkedOrders.includes(order._id)}
                     onChange={() => checkOrder(order._id)}
+
                   />
                 </TableCell>
                 <TableCell>{index + 1}</TableCell>
