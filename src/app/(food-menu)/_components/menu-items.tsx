@@ -53,19 +53,12 @@ export const MenuItems = () => {
 
   return (
     <div className="w-full h-fit gap-3 flex flex-wrap">
-      <Button className="w-[143px] h-fit rounded-full gap-[8px] text-black bg-[none]">
-        <p className=" font-medium text-sm">All Dishes</p>
-        <div className="py-[2px] text-white text-sm px-[10px] rounded-full bg-black">
-          <p className="font-semibold text-xs">{categories.length + 1}</p>
-        </div>
-      </Button>
       {categories.length > 0 &&
         categories?.map((category: Category, index) => (
           <div key={index}>
-            <Button className="w-[143px] h-fit rounded-full gap-[8px] bg-[none] text-black">
-              {category.categoryName}
-              <div className="bg-black py-[2px] text-white text-sm px-[10px] rounded-full">{category.categoryName.length + 1}</div>
-            </Button>
+            <div className="w-[148px] h-fit rounded-full gap-[8px] bg-[#E4E4E7] border flex justify-center text-black">
+              <p className="font-medium text-sm">{category.categoryName}</p>
+            </div>
           </div>
         ))}
       <Dialog>

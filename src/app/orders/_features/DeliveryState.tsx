@@ -11,6 +11,7 @@ import {
 import { useOrder } from "@/provider/OrderProvider";
 import axios from "axios";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 export const DeliverStatus = ({checkedOrders}:{checkedOrders:string[]}) => {
   const [deliverystatus, setDeliveryStatus] = useState("");
@@ -24,6 +25,7 @@ export const DeliverStatus = ({checkedOrders}:{checkedOrders:string[]}) => {
         console.log(error);
     }
   }
+  const notify = () => toast("Success Delivery State")
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -59,7 +61,7 @@ export const DeliverStatus = ({checkedOrders}:{checkedOrders:string[]}) => {
           </Button>
         </div>
         <DialogFooter>
-          <Button type="submit" onClick={handleStatus}>Save changes</Button>
+          <Button type="submit" onClick={handleStatus} onClickCapture={notify}>Save changes</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

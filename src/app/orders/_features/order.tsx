@@ -18,9 +18,9 @@ import { ChevronLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import axios from "axios";
 import { OrderfoodImage } from "./OrderfoodimagesDetail";
-import { DatePickerDemo } from "./Date";
 import { DeliverStatus } from "./DeliveryState";
 import { useState } from "react";
+import { PaginationAdmin } from "@/pagination/Pagination";
 
 export const OrderHeader = () => {
   const { orders, refetchOrder } = useOrder();
@@ -48,13 +48,13 @@ export const OrderHeader = () => {
   };
   console.log(checkedOrders);
 
+
   return (
     <>
       <div className="justify-between items-center mt-[12px] w-full">
         <div className="bg-white-700 rounded-xl w-full mt-[35px] h-fit justify-between">
           <div className="w-[485px] h-[44px] px-4 py-5 flex justify-center justify-between gap-[100px]">
             <p>Orders</p>
-            <DatePickerDemo />
             <DeliverStatus checkedOrders={checkedOrders}/>
           </div>
         </div>
@@ -143,6 +143,7 @@ export const OrderHeader = () => {
             ))}
           </TableBody>
         </Table>
+        <PaginationAdmin />
       </div>
     </>
   );

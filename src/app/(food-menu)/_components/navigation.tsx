@@ -27,7 +27,7 @@ export const Navigation = () => {
           <TruckIcon />
           <p className="w-[75px] h-[20px] font-medium text-sm">Orders</p>
         </Button>
-        <Button className="w-[165px]  rounded-full text-black bg-[none]">
+        <Button className="w-[165px]  rounded-full text-black bg-[none]" onClick={()=> router.push('/settings')}>
           <SettingsIcon />
           <p className="w-[75px] h-[20px] font-medium text-sm">Settings</p>
         </Button>

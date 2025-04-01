@@ -17,6 +17,7 @@ import { Pencil } from "lucide-react";
 import { Trash } from "lucide-react";
 import { useState } from "react";
 import { X } from "lucide-react";
+import { toast } from "react-toastify";
 
 type Props = {
   food: food;
@@ -91,6 +92,8 @@ export const Newfood = ({ food, getFood, categories }: Props) => {
       getFood();
     } 
   };
+  const notify = () => toast("Food Updated")
+  const notify2 = () => toast("Dish successfully deleted.")
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -196,10 +199,10 @@ export const Newfood = ({ food, getFood, categories }: Props) => {
           </div>
         </div>
         <DialogFooter className="flex justify-between">
-          <Button onClick={deleteFood}>
+          <Button onClick={deleteFood} onClickCapture={notify2}>
             <Trash />
           </Button>
-          <Button type="submit" onClick={putFood}>
+          <Button type="submit" onClick={putFood} onClickCapture={notify}>
             Save changes
           </Button>
         </DialogFooter>

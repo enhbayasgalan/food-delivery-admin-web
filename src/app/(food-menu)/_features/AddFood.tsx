@@ -15,6 +15,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import {  useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 type Props ={
     category : Category
 }
@@ -75,7 +76,11 @@ export const AddFoods = ({category}:Props) => {
                 
             }
           }
-         
+         const notify = () => toast("New dish is being added to the menu")
+
+         const close = () => {
+          
+         }
      return(
         
                       <Dialog>
@@ -145,7 +150,7 @@ export const AddFoods = ({category}:Props) => {
                             </div>
                           </div>
                           <DialogFooter>
-                            <Button onClick={postFood} type="submit">Add dish</Button>
+                            <Button onClick={postFood} type="submit" onClickCapture={notify}>Add dish</Button>
                           </DialogFooter>
                         </DialogContent>
                       </Dialog>
