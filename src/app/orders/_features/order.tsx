@@ -14,7 +14,7 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { ChevronLeft } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
 import axios from "axios";
 import { OrderfoodImage } from "./OrderfoodimagesDetail";
@@ -91,10 +91,9 @@ export const OrderHeader = () => {
                   food
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                      <ChevronLeft />
+                    <OrderfoodImage item={order.foodOrderItems} />
                     </DropdownMenuTrigger>
                     <DropdownMenuContent>
-                      <OrderfoodImage item={order.foodOrderItems} />
                     </DropdownMenuContent>
                   </DropdownMenu>
                   </div>

@@ -9,7 +9,9 @@ import {
   } from "@/components/ui/pagination"
 
 
+
 export const PaginationAdmin = () => {
+  
     
     return(
         <Pagination>
