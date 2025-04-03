@@ -20,7 +20,7 @@ import axios from "axios";
 import { OrderfoodImage } from "./OrderfoodimagesDetail";
 import { DeliverStatus } from "./DeliveryState";
 import { useState } from "react";
-import { PaginationAdmin } from "@/pagination/Pagination";
+
 
 export const OrderHeader = () => {
   const { orders, refetchOrder } = useOrder();
@@ -142,7 +142,6 @@ export const OrderHeader = () => {
             ))}
           </TableBody>
         </Table>
-        <PaginationAdmin />
       </div>
     </>
   );
