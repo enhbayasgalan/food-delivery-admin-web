@@ -34,7 +34,7 @@ type Food = {
 };
 
 export const AddFoods = ({ category }: Props) => {
-  const { postFood } = useFood();
+  const { postFood, refetchFood } = useFood();
   const [newFood, setNewfood] = useState<Food>({
     foodName: "",
     price: 0,
@@ -66,6 +66,7 @@ export const AddFoods = ({ category }: Props) => {
         }
       } catch (err) {
         console.log(err);
+        await refetchFood()
       }
     }
   };

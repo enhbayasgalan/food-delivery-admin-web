@@ -39,7 +39,7 @@ type Response = {
   _id: string;
 };
 export const Newfood = ({ food, categories }: Props) => {
-  const { putFood } = useFood();
+  const { putFood, refetchFood } = useFood();
   const [putfood, setPutfood] = useState({
     foodName: food.foodName,
     price: food.price,
@@ -80,6 +80,7 @@ export const Newfood = ({ food, categories }: Props) => {
         `https://food-delivery-service-0wy6.onrender.com/food/${food._id}`
       );
       console.log(res);
+      await refetchFood()
     } catch (error) {
       console.log(error);
     } finally {
