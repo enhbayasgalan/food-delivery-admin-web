@@ -85,7 +85,7 @@ export const OrderHeader = () => {
                   />
                 </TableCell>
                 <TableCell>{index + 1}</TableCell>
-                <TableCell>{order.user.email}</TableCell>
+                <TableCell>{order.user?.email}</TableCell>
                 <TableCell className="flex">
                   <div>
                   food
@@ -102,7 +102,7 @@ export const OrderHeader = () => {
                   {order.createdAt.toString().split("T")[0]}
                 </TableCell>
                 <TableCell>{order.totalPrice}$</TableCell>
-                <TableCell>{order.user.address}</TableCell>
+                <TableCell>{order.user?.address}</TableCell>
                 <TableCell>
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
