@@ -1,6 +1,6 @@
 import LogoNomNom from "@/components/Logo";
 import { Button } from "@/components/ui/button";
-import { LayoutDashboardIcon, SettingsIcon, TruckIcon } from "lucide-react";
+import { LayoutDashboardIcon, TruckIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -34,13 +34,6 @@ export const Navigation = () => {
         >
           <TruckIcon />
           <p className="w-[75px] h-[20px] font-medium text-sm">Orders</p>
-        </Button>
-        <Button
-          className="w-[165px]  rounded-full text-black bg-[none]"
-          onClick={() => router.push("/settings")}
-        >
-          <SettingsIcon />
-          <p className="w-[75px] h-[20px] font-medium text-sm">Settings</p>
         </Button>
       </div>
     </div>

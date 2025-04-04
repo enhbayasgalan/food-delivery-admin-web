@@ -68,6 +68,7 @@ export const Newfood = ({ food, categories }: Props) => {
           const result = await response.json();
           console.log(result);
           setPutfood({ ...putfood, image: result.secure_url });
+          await refetchFood()
         }
       } catch (err) {
         console.log(err);

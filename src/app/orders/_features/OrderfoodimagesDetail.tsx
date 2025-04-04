@@ -31,10 +31,10 @@ export const OrderfoodImage = ({item} : Props) => {
             <div key={index} className="flex w-[263px] justify-between items-center mt-[10px]">
                 <div className="flex h-full gap-2 ">
                     <div className="overflow-hidden w-[80px] h-[60px] rounded-md flex ">
-                        <img src={item.food.foodName ? item.food.image : "" } alt="food" />
+                        <img src={item.food?.foodName ? item.food.image : "" } alt="food" />
                     </div>
                     <div className="h-[60px] flex items-center ">
-                        <p>{item.food.foodName}</p>
+                        <p>{item.food?.foodName}</p>
                     </div>
                 </div>
                 <div>x{item.quantity}</div>
