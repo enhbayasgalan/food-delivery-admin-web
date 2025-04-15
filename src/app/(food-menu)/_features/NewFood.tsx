@@ -10,7 +10,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import axios from "axios";
 import { Pencil } from "lucide-react";
@@ -68,7 +67,7 @@ export const Newfood = ({ food, categories }: Props) => {
           const result = await response.json();
           console.log(result);
           setPutfood({ ...putfood, image: result.secure_url });
-          await refetchFood()
+          await refetchFood();
         }
       } catch (err) {
         console.log(err);
@@ -81,7 +80,7 @@ export const Newfood = ({ food, categories }: Props) => {
         `https://food-delivery-service-0wy6.onrender.com/food/${food._id}`
       );
       console.log(res);
-      await refetchFood()
+      await refetchFood();
     } catch (error) {
       console.log(error);
     } finally {
@@ -109,10 +108,10 @@ export const Newfood = ({ food, categories }: Props) => {
             <Label htmlFor="name" className="text-right">
               Dish name
             </Label>
-            <Input
+            <input
               id="name"
               placeholder="Pedro Duarte"
-              className="col-span-3"
+              className="col-span-3 px-3 py-4 border rounded-xl"
               value={putfood.foodName}
               onChange={(e) =>
                 setPutfood({ ...putfood, foodName: e.target.value })
@@ -123,10 +122,10 @@ export const Newfood = ({ food, categories }: Props) => {
             <Label htmlFor="username" className="text-right">
               Ingredients
             </Label>
-            <Input
+            <input
               id="username"
               defaultValue="@peduarte"
-              className="col-span-3"
+              className="col-span-3 px-3 py-4 border rounded-xl"
               value={putfood.ingredients}
               onChange={(e) =>
                 setPutfood({ ...putfood, ingredients: e.target.value })
@@ -155,10 +154,10 @@ export const Newfood = ({ food, categories }: Props) => {
             <Label htmlFor="username" className="text-right">
               Dish Price
             </Label>
-            <Input
+            <input
               id="username"
               defaultValue="@peduarte"
-              className="col-span-3"
+              className="col-span-3 px-3 py-4 border rounded-xl"
               value={putfood.price}
               onChange={(e) =>
                 setPutfood({ ...putfood, price: parseInt(e.target.value) })

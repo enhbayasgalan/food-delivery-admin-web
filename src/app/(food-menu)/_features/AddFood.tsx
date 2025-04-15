@@ -10,7 +10,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
@@ -93,9 +92,9 @@ export const AddFoods = ({ category }: Props) => {
             <Label htmlFor="name" className="text-right">
               Food Name
             </Label>
-            <Input
+            <input
               placeholder="Type food name"
-              className="col-span-3 "
+              className="col-span-3 px-3 py-2 border rounded-xl"
               onChange={(e) =>
                 setNewfood({ ...newFood, foodName: e.target.value })
               }
@@ -105,9 +104,9 @@ export const AddFoods = ({ category }: Props) => {
             <Label htmlFor="username" className="text-right">
               Food Price
             </Label>
-            <Input
+            <input
               placeholder="Enter price..."
-              className="col-span-3"
+              className="col-span-3 px-3 py-2 border rounded-xl"
               onChange={(e) =>
                 setNewfood({ ...newFood, price: parseInt(e.target.value) })
               }
@@ -117,9 +116,9 @@ export const AddFoods = ({ category }: Props) => {
             <Label htmlFor="username" className="text-right">
               Ingredients
             </Label>
-            <Input
+            <input
               placeholder="List ingredients..."
-              className="col-span-3 h-[90px]"
+              className="col-span-3 h-[90px] px-3 py-4 border rounded-xl"
               onChange={(e) =>
                 setNewfood({ ...newFood, ingredients: e.target.value })
               }
@@ -131,7 +130,7 @@ export const AddFoods = ({ category }: Props) => {
             </Label>
             {!newFood.image ? (
               <>
-                <Input
+                <input
                   onChange={imageOnChange}
                   type="file"
                   name="profileImage"
